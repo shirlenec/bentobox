@@ -12,6 +12,7 @@ app.service('recipeService', function($http){
               }
     }).
     success (function(data, status, headers, config){
+    	console.log ("in service");
     	console.log(data);
       return data;
     }).
