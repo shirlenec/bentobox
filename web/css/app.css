@@ -94,3 +94,12 @@ ul.specs dt {
 h1 {
   border-bottom: 1px solid gray;
 }
+
+#ingredient-list {
+  max-width: 350px;
+  border:1px solid #555555;
+}
+
+#essential-text {
+  margin-top: 10px;
+}
