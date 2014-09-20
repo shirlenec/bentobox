@@ -1,0 +1,24 @@
+#home-page {
+  margin: 20px;
+}
+
+#header {
+  position: relative;
+  height: 40px;
+}
+
+#header .bar {
+  height: 2px;
+  background-color: #00c200;
+  position: relative;
+  top: 15px;
+}
+
+#header #logo {
+  color: #00c200;
+  font-family: Verdana;
+  font-size: 20px;
+  position: absolute;
+  background: white;
+  padding-right: 10px;
+}

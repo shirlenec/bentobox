@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
   <link rel="stylesheet" href="css/app.css">
   <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/home.css">
 
   <script src="bower_components/jquery/jquery.js"></script>
   <script src="bower_components/angular/angular.js"></script>
@@ -20,8 +21,16 @@
 </head>
 <body>
 
-  <div class="view-container">
-    <div ng-view class="view-frame"></div>
+  <div id="home-page">
+    <div id="header">
+      <div class="bar"></div>
+      <span id="logo">BentoBox</span>
+    </div>
+
+    <div class="view-container">
+      <div ng-view class="view-frame"></div>
+    </div>
+
   </div>
 
 </body>
