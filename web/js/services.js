@@ -1,11 +1,6 @@
 
-app.service('recipeService', function($http, $q){
+app.service('recipeService', function($http){
   this.getRecipes = function() {
-    var deferred = $q.defer();
-    // var photos = function (data) {
-    //  alert(data);
-    // };
-
     $.ajax({
       method:'GET',
       url:'https://api.yummly.com/v1/api/recipes?_app_id=0375a96b&_app_key=ad073d0bd45d862d60e9f41b30ad316a&q=chicken+wine',
@@ -17,12 +12,11 @@ app.service('recipeService', function($http, $q){
               }
     }).
     success (function(data, status, headers, config){
-      q.resolve(data);
+    	console.log(data);
+      return data;
     }).
     error(function(data, status){
-      q.reject(data);
+      alert ('not working');
     });
-
-    return deferred.promise;
   }
 });
