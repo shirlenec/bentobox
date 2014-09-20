@@ -2,32 +2,28 @@
 
 /* App Module */
 
-var phonecatApp = angular.module('phonecatApp', [
+var bentoBoxApp = angular.module('bentoBoxApp', [
   'ngRoute',
   'phonecatAnimations',
 
-  'phonecatControllers',
+  'ingredientListControllers',
   'phonecatFilters',
   'phonecatServices',
   'recipeControllers'
 ]);
 
-phonecatApp.config(['$routeProvider',
+bentoBoxApp.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
-      when('/phones', {
-        templateUrl: 'partials/phone-list.html',
-        controller: 'PhoneListCtrl'
-      }).
-      when('/phones/:phoneId', {
-        templateUrl: 'partials/phone-detail.html',
-        controller: 'PhoneDetailCtrl'
+      when('/', {
+        templateUrl: 'partials/ingredient-list.html',
+        controller: 'ingredientListCtrl'
       }).
       when('/recipes/:recipeId', {
         templateUrl: 'partials/recipeTile.html',
         controller: 'RecipeTileCtrl'
       }).
       otherwise({
-        redirectTo: '/phones'
+        redirectTo: '/'
       });
   }]);

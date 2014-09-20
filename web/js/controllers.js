@@ -2,12 +2,10 @@
 
 /* Controllers */
 
-var phonecatControllers = angular.module('phonecatControllers', []);
+var ingredientListControllers = angular.module('ingredientListControllers', []);
 
-phonecatControllers.controller('PhoneListCtrl', ['$scope', 'Phone',
-  function($scope, Phone) {
-    $scope.phones = Phone.query();
-    $scope.orderProp = 'age';
+ingredientListControllers.controller('ingredientListCtrl', ['$scope',
+  function($scope) {
     $scope.ingredientToAdd = "";
     $scope.newIngredients = [];
     $scope.addIngredient = function () {
@@ -39,15 +37,3 @@ phonecatControllers.controller('PhoneListCtrl', ['$scope', 'Phone',
       console.log($scope.allIngredients);
     }
   }]);
-
-phonecatControllers.controller('PhoneDetailCtrl', ['$scope', '$routeParams', 'Phone',
-  function($scope, $routeParams, Phone) {
-    $scope.phone = Phone.get({phoneId: $routeParams.phoneId}, function(phone) {
-      $scope.mainImageUrl = phone.images[0];
-    });
-
-    $scope.setImage = function(imageUrl) {
-      $scope.mainImageUrl = imageUrl;
-    }
-  }]);
-
