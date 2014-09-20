@@ -4,7 +4,7 @@
       <!--Sidebar content-->
       <div id="add-container">
         <div id="add-text">Add an Ingredient</div>
-        <input id="add-field" ng-model="ingredientToAdd">
+        <input id="add-field" ng-model="ingredientToAdd" ng-enter="addIngredient()">
         <button id="add-button" ng-click="addIngredient()">Add</button>
       </div>
       <div id="essential-container">
