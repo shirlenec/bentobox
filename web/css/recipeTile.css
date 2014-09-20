@@ -1,0 +1,32 @@
+.recipeTile .artwork {
+	width: 200px;
+	height: 200px;
+	background: url('../img/recipes/recipe1.png');
+}
+
+.recipeTile .artwork .healthyFlag {
+	width: 78px;
+	height: 78px;
+	background: url('../img/icons/flagHealthy.png');
+	float: right;
+}
+
+.recipeTile .infoPane {
+	background: #ffffff;
+	width: 200px;
+	height: 60px;
+	line-height: 20px;
+	padding: 10px;
+}
+
+.recipeTile .infoPane .ratings {
+	float: left;
+}
+
+.recipeTile .infoPane .timeToMake {
+	float: right;
+}
+
+.recipeTile .infoPane .recipeName {
+	clear: both;
+}
