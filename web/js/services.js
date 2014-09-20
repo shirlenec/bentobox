@@ -2,11 +2,11 @@
 
 /* Services */
 
-var phonecatServices = angular.module('phonecatServices', ['ngResource']);
+var recipeServices = angular.module('recipeServices', ['ngResource']);
 
-phonecatServices.factory('Phone', ['$resource',
+recipeServices.factory('Recipe', ['$resource',
   function($resource){
-    return $resource('phones/:phoneId.json', {}, {
-      query: {method:'GET', params:{phoneId:'phones'}, isArray:true}
+    return $resource('recipes/:titleSlug.json', {}, {
+      query: {method:'GET', params:{titleSlug:'recipes'}, isArray:true}
     });
   }]);

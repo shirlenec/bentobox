@@ -1,0 +1,39 @@
+{
+    "title" : "Shrimp Linguini",
+    "id" : 3,
+    "rating" : 5,
+    "healthy" : true,
+    "cookTime" : 19,
+    "ingredients" : [
+        {
+            "name" : "eggs",
+            "amount" : 6,
+            "unit" : ""
+        },
+        {
+            "name" : "milk",
+            "amount" : 2,
+            "unit" : "litres"
+        },
+        {
+            "name" : "pasta",
+            "amount" : 400,
+            "unit" : "grams"
+        },
+        {
+            "name" : "shrimps",
+            "amount":12,
+            "unit": ""
+        },
+        {
+            "name" : "mushrooms",
+            "amount":150,
+            "unit" : "grams"
+        },
+        {
+            "name" : "salt",
+            "amount":2,
+            "unit":"tsp"
+        }
+    ]
+}

@@ -1,0 +1,39 @@
+{
+    "title" : "Cupcakes",
+    "id":4,
+    "rating" : 1,
+    "healthy" : false,
+    "cookTime" : 50,
+    "ingredients" : [
+        {
+            "name" : "eggs",
+            "amount" : 6,
+            "unit" : ""
+        },
+        {
+            "name" : "milk",
+            "amount" : 2,
+            "unit" : "litres"
+        },
+        {
+            "name" : "chocolate chips",
+            "amount" : 100,
+            "unit" : "grams"
+        },
+        {
+            "name" : "flour",
+            "amount":3,
+            "unit": "cup"
+        },
+        {
+            "name" : "mushrooms",
+            "amount":150,
+            "unit" : "grams"
+        },
+        {
+            "name" : "salt",
+            "amount":2,
+            "unit":"tsp"
+        }
+    ]
+}

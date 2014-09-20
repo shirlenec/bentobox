@@ -1,0 +1,39 @@
+{
+    "title" : "Grilled Chicken",
+    "id" : 2,
+    "rating" : 4.5,
+    "healthy" : false,
+    "cookTime" : 40,
+    "ingredients" : [
+        {
+            "name" : "chicken thighs",
+            "amount" : 9,
+            "unit" : ""
+        },
+        {
+            "name" : "rosemary",
+            "amount" : 2,
+            "unit" : "tsp"
+        },
+        {
+            "name" : "lemon juice",
+            "amount" : 3,
+            "unit" : "tbsp"
+        },
+        {
+            "name" : "olive oil",
+            "amount":2,
+            "unit": "tbsp"
+        },
+        {
+            "name" : "pepper",
+            "amount":2,
+            "unit" : "tsp"
+        },
+        {
+            "name" : "salt",
+            "amount":2,
+            "unit":"tsp"
+        }
+    ]
+}

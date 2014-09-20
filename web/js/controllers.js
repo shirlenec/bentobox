@@ -4,7 +4,7 @@
 
 var ingredientListControllers = angular.module('ingredientListControllers', []);
 
-ingredientListControllers.controller('ingredientListCtrl', ['$scope',
+ingredientListControllers.controller('ingredientListCtrl', ['$scope', 
   function($scope) {
     $scope.ingredientToAdd = "";
     $scope.newIngredients = [];
@@ -35,5 +35,7 @@ ingredientListControllers.controller('ingredientListCtrl', ['$scope',
     $scope.findRecipes = function() {
       $scope.allIngredients = $scope.newIngredients.concat($scope.selection);
       console.log($scope.allIngredients);
+      console.log(window.location.href);
+      window.location.href = "#/recipes";
     }
   }]);

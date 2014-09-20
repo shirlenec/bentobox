@@ -8,7 +8,7 @@ var bentoBoxApp = angular.module('bentoBoxApp', [
 
   'ingredientListControllers',
   'phonecatFilters',
-  'phonecatServices',
+  'recipeServices',
   'recipeControllers'
 ]);
 
@@ -19,7 +19,7 @@ bentoBoxApp.config(['$routeProvider',
         templateUrl: 'partials/ingredient-list.html',
         controller: 'ingredientListCtrl'
       }).
-      when('/recipes/:recipeId', {
+      when('/recipes/', {
         templateUrl: 'partials/recipeTile.html',
         controller: 'RecipeTileCtrl'
       }).

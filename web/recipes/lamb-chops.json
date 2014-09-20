@@ -1,0 +1,39 @@
+{
+    "title" : "Lamb Chops",
+    "id": 1,
+    "rating" : 3,
+    "healthy" : true,
+    "cookTime" : 120,
+    "ingredients" : [
+        {
+            "name" : "lamb chops",
+            "amount" : 6,
+            "unit" : ""
+        },
+        {
+            "name" : "milk",
+            "amount" : 2,
+            "unit" : "litres"
+        },
+        {
+            "name" : "salt",
+            "amount" : 4,
+            "unit" : "tsp"
+        },
+        {
+            "name" : "pepper",
+            "amount": 2,
+            "unit": "tsp"
+        },
+        {
+            "name" : "rosemary",
+            "amount":3,
+            "unit" : "tsp"
+        },
+        {
+            "name" : "thyme",
+            "amount":2,
+            "unit":"tsp"
+        }
+    ]
+}

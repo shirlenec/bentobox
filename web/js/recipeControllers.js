@@ -4,11 +4,12 @@
 
 var recipeControllers = angular.module('recipeControllers', []);
 
-recipeControllers.controller('RecipeTileCtrl', ['$scope', '$routeParams', 'Phone',
-  function($scope, $routeParams, Phone) {
-    $scope.phone = Phone.get({phoneId: 'motorola-xoom-with-wi-fi'}, function(phone) {
-      $scope.mainImageUrl = phone.images[0];
-    });
+recipeControllers.controller('RecipeTileCtrl', ['$scope', '$routeParams', '$http',
+  function($scope, $routeParams, $http) {
+    $http.get('recipes/recipes.json').success(function(data) {
+        $scope.recipes = data.recipes;
+        console.log($scope.recipes);
+      });
 
     $scope.setImage = function(imageUrl) {
       $scope.mainImageUrl = imageUrl;
