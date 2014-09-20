@@ -1,28 +1,28 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-2">
+    <div class="col-md-3">
       <!--Sidebar content-->
-
-      Search: <input ng-model="query">
-      Sort by:
-      <select ng-model="orderProp">
-        <option value="name">Alphabetical</option>
-        <option value="age">Newest</option>
-      </select>
-
+      <div id="add-container">
+        <div id="add-text">Add an Ingredient</div>
+        <input id="add-field" ng-model="ingredientToAdd">
+        <button id="add-button" ng-click="addIngredient()">Add</button>
+      </div>
+      <div id="essential-container">
+        <div id="essential-text">Essentials</div>
+        <div id="essential-ingredients">
+          <label ng-repeat="essential in essentials">
+            <input type="checkbox" name="selectedEssential[]" value="{{essential}}" ng-checked="selection.indexOf(essential) > -1"
+            ng-click="toggleSelection(essential)"> {{essential}}
+          </label>
+        </div>
+      </div>
     </div>
-    <div class="col-md-10">
+    <div class="col-md-5">
       <!--Body content-->
-      <div>New UI Branch</div>
-      <ul class="phones">
-        <li ng-repeat="phone in phones | filter:query | orderBy:orderProp"
-            class="thumbnail phone-listing">
-          <a href="#/phones/{{phone.id}}" class="thumb"><img ng-src="{{phone.imageUrl}}"></a>
-          <a href="#/phones/{{phone.id}}">{{phone.name}}</a>
-          <p>{{phone.snippet}}</p>
-        </li>
-      </ul>
-
-    </div>
+      <div id="ingredient-list-container">
+        <div>Ingredient List:</div>
+        <div id="ingredient-list">Essentials</div>
+      </div>
+      <div id="#recipe-button-container" ng-click="findRecipes()">Find Recipes!</div>
   </div>
 </div>
