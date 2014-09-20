@@ -1,3 +1,26 @@
+.allRecipes .ingredient-list {
+	width: 20%;
+	float: left;
+}
+
+.allRecipes .recipe-container {
+	width: 80%;
+	float: left;
+}
+
+.recipeTileLink {
+	color: black;
+}
+
+.recipeTileLink:hover {
+	color: black;
+}
+
+.recipeTile {
+	display: inline-block;
+	margin: 5px;
+}
+
 .recipeTile .artwork {
 	width: 200px;
 	height: 200px;

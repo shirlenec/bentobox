@@ -19,9 +19,13 @@ bentoBoxApp.config(['$routeProvider',
         templateUrl: 'partials/ingredient-list.html',
         controller: 'ingredientListCtrl'
       }).
-      when('/recipes/', {
+      when('/recipes/:recipeId', {
         templateUrl: 'partials/recipeTile.html',
         controller: 'RecipeTileCtrl'
+      }).
+      when('/recipes/', {
+        templateUrl: 'partials/allRecipes.html',
+        controller: 'AllRecipesCtrl'
       }).
       otherwise({
         redirectTo: '/'

@@ -1,0 +1,24 @@
+<div class="container-fluid allRecipes">
+  <div class="ingredient-list">
+  	Ingredient List:
+  </div>
+  <div class="recipe-container">
+	  <div class="recipes-text">Recipes</div>
+	  	<div class="tile-container">
+		  	<a class="recipeTileLink" ng-repeat="recipe in recipes" href="#/recipes/{{recipe.id}}">
+		      <div class="recipeTile">
+				<div class="artwork">
+					<div class="healthyFlag" ng-show="recipe.healthy"></div>
+				</div>
+				<div class="infoPane">
+					<div class="ratings">{{recipe.rating}} stars</div>
+					<div class="timeToMake">{{recipe.cookTime}} min</div>
+					<div class="recipeName">{{recipe.title}}</div>
+				</div>
+		      </div>
+		  	</a>
+	    </div>
+	  </div>
+  </div>
+  <div class="clearall"></div>
+</div>
