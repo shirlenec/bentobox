@@ -1,1 +1,1 @@
-web: node web.js
+web: zerver -p web
