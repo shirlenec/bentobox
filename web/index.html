@@ -1,32 +1,28 @@
+<!doctype html>
+<html lang="en" ng-app="phonecatApp">
+<head>
+  <meta charset="utf-8">
+  <title>Google Phone Gallery</title>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/animations.css">
 
-<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<html>
+  <script src="bower_components/jquery/jquery.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/controllers.js"></script>
+  <script src="js/filters.js"></script>
+  <script src="js/services.js"></script>
+</head>
 <body>
 
-<div class="getting">
-<a id="testinglink" onclick="test()">
-	Wheeee
-</a>
-</div>
+  <div class="view-container">
+    <div ng-view class="view-frame"></div>
+  </div>
+
 </body>
 </html>
-
-<script type="text/javascript">
-function test(){
-	alert("hi");
-	$.ajax({
-		type: 'GET',
-		url:"https://api.yummly.com/v1/api/recipes?_app_id=0375a96b&_app_key=ad073d0bd45d862d60e9f41b30ad316a&q=chicken+wine",
-	}).done(function(data) {
-	alert("worked?");
-	console.log(data);
-	}).error(function(){
-	alert("didn't work...");
-
-	});
-};
-function testagain(){
-	alert("testagain");
-}
-
-</script>
