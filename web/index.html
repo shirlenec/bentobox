@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app="phonecatApp">
+<html lang="en" ng-app="recipeFinder" >
 <head>
   <meta charset="utf-8">
   <title>Google Phone Gallery</title>
@@ -17,12 +17,20 @@
   <script src="js/controllers.js"></script>
   <script src="js/filters.js"></script>
   <script src="js/services.js"></script>
+
 </head>
-<body>
+<body ng-controller="getController">
 
   <div class="view-container">
     <div ng-view class="view-frame"></div>
   </div>
-
+  <table>
+    <tr ng-repeat="recipe in recipes">
+      <td>
+        {{recipe.id}}
+      </td>
+    </tr>
+  </table>
 </body>
+
 </html>
