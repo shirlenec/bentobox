@@ -1,1 +1,32 @@
-<h>Welcome to Transit Helper!</h>
+
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<html>
+<body>
+
+<div class="getting">
+<a id="testinglink" onclick="test()">
+	Wheeee
+</a>
+</div>
+</body>
+</html>
+
+<script type="text/javascript">
+function test(){
+	alert("hi");
+	$.ajax({
+		type: 'GET',
+		url:"https://api.yummly.com/v1/api/recipes?_app_id=0375a96b&_app_key=ad073d0bd45d862d60e9f41b30ad316a&q=chicken+wine",
+	}).done(function(data) {
+	alert("worked?");
+	console.log(data);
+	}).error(function(){
+	alert("didn't work...");
+
+	});
+};
+function testagain(){
+	alert("testagain");
+}
+
+</script>
