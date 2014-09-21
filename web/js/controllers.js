@@ -64,13 +64,35 @@ function filterRecipes (ingredientList, essentialList, results){
     // Iterate through list, remove duplicates and recipes with ingredients that are provided. 
     var filteredRecipes = [];
     var allIngredients = ingredientList.concat(essentialList);
+    
+    // Replace common items that have many names, with all their names in allIngredients
+    // for (k in results){
+    //  
+    // }
+
     for (i in results){
       if (i != 0 && results[i] != results[i-1]) {
+        // Replace common items
+        // var current = allIngredients[k];
+        // if (current.indexOf("pasta") > -1 && current.indexOf("sauce") <= -1 && current.indexOf("gluten-free") <= -1 && current.indexOf("egg") <= -1 && current.indexOf("sheets") <= -1) {
+        //   allIngredients[k] = "pasta";
+        // } else if (current.indexOf("rice") > -1 && current.indexOf("flour") <=-1 && current.indexOf("wine")<=-1 &&
+        //  current.indexOf("Krispies") <=-1 && current.indexOf("noodles") <=-1 && current.indexOf("cereal")<=-1 &&
+        //   current.indexOf("Chex")<=-1 && current.indexOf("licorice")<=-1 && current.indexOf("paper")<=-1 &&
+        //    current.indexOf("milk")<=-1 && current.indexOf("vermicelli")<=-1 && current.indexOf("risotto")<=-1 && 
+        //    current.indexOf("stick")<=-1 && current.indexOf("syrup")<= -1 && current.indexOf("glutinous")<= -1 &&
+        //     current.indexOf("bran")<= -1 && current.indexOf("puffed")<= -1 && current.indexOf("Chicken")<= -1 &&
+        //      current.indexOf("liquorice")<= -1 && current.indexOf("chaurice")<= -1 && current.indexOf("Roni") <= -1 &&
+        //       current.indexOf("vinegar")<= -1)
+        // {
+        //   allIngredients[k] = "rice";
+        // }
+
         // Check if recipe contains ingredients we don't have. 
         var currentIngredients = results[i].ingredients;
         var inList = true;
           for (k in currentIngredients){
-            if (!jQuery.inArray(currentIngredients[k], allIngredients)) {
+            if (jQuery.inArray(currentIngredients[k], allIngredients)<=-1) {
               inList = false;
               break;
             }
@@ -81,10 +103,9 @@ function filterRecipes (ingredientList, essentialList, results){
           }
       }
     }
-    
+
     $scope.recipes = filteredRecipes;
   }
 
-  // getRecipes(["boneless chicken skinless thigh","dry white wine","chicken stock","heavy cream","grated lemon zest","pappardelle", "salt", "pasta", "flour", 
-    // "eggs", "black pepper", "ground black pepper", "yeast", "sugar", "water", "beef"], []);
+ //  getRecipes(["white rice","coarse salt","water"], []);
 });
