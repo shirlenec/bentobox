@@ -26,6 +26,10 @@ bentoBoxApp.config(['$routeProvider',
         templateUrl: 'partials/allRecipes.html',
         controller: 'AllRecipesCtrl'
       }).
+      when('/fakerecipes/', {
+        templateUrl: 'partials/allRecipes.html',
+        controller: 'AllFakeRecipesCtrl'
+      }).
       otherwise({
         redirectTo: '/'
       });

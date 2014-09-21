@@ -26,7 +26,7 @@
 		  	<a class="recipeTileLink" ng-repeat="recipe in recipes | orderBy: orderProp" ng-href="#/recipes/{{recipe.id}}" ng-click="clickedLink(recipe)">
 		      <div class="recipeTile">
 				<div class="artwork" style="background-image: url('{{recipe.thumbnail}}')">
-					<div class="healthyFlag"></div>
+					<div class="healthyFlag" ng-show="recipe.healthy"></div>
 				</div>
 				<div class="infoPane">
 					<span class="blueStar ratings" ng-repeat="i in getNumber(recipe.numStars) track by $index"></span>

@@ -116,6 +116,7 @@ recipeControllers.controller('AllRecipesCtrl', ['$scope', '$http', 'shared',
 	    	$scope.recipes[i].thumbnail = ($scope.recipes[i].smallImageUrls && $scope.recipes[i].smallImageUrls.length) ?
 	    									$scope.recipes[i].smallImageUrls[0] : '';
 	    	$scope.recipes[i].numStars = parseInt($scope.recipes[i].rating);
+	    	$scope.recipes[i].healthy = false;
 	    }
 	    $scope.$apply();
 
@@ -140,4 +141,23 @@ recipeControllers.controller('RecipeDetailsCtrl', ['$scope', '$routeParams', 'sh
 		$scope.getNumber = function(num) {
 		    return new Array(num);
 		}
-	}])
+	}]);
+
+recipeControllers.controller('AllFakeRecipesCtrl', ['$scope', '$http', 'shared',
+  function($scope, $http, shared) {
+  	$scope.submittedIngredients = shared.getAdded().concat(shared.getEssential());
+  	$scope.orderProp = "recipeName";
+
+	$scope.clickedLink = function (recipe) {
+		shared.setRecipe(recipe);
+	};
+
+	$scope.getNumber = function(num) {
+	    return new Array(num);
+	}
+
+	$http.get('recipes/' + 'recipes.json').success(function(data){
+		$scope.recipes = data.recipes;
+	});
+  }
+]);
