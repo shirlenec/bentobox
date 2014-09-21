@@ -27,7 +27,13 @@ app.controller('getController', function($scope){
 
 function apiCall(ingredient, results) {
   var deferred = Q.defer();
-  var queryString = "https://api.yummly.com/v1/api/recipes?_app_id=0375a96b&_app_key=ad073d0bd45d862d60e9f41b30ad316a&q=" + ingredient;
+  //Michelle
+  // var app_id = "0375a96b";
+  // var app_key = "ad073d0bd45d862d60e9f41b30ad316a";
+
+  var app_id = "f796d382";
+  var app_key = "781bfd632b62f4b2b3d86dd8b6714f01";
+  var queryString = "https://api.yummly.com/v1/api/recipes?_app_id=" +app_id+ "&_app_key="+app_key+"&q=" + ingredient;
 $.ajax({
         method:'GET',
         url:queryString,
@@ -75,10 +81,10 @@ function filterRecipes (ingredientList, essentialList, results){
           }
       }
     }
-
+    
     $scope.recipes = filteredRecipes;
   }
 
-  getRecipes(["boneless chicken skinless thigh","dry white wine","chicken stock","heavy cream","grated lemon zest","pappardelle", "salt", "pasta", "flour", 
-    "eggs", "black pepper", "ground black pepper", "yeast", "sugar", "water", "beef"], []);
+  // getRecipes(["boneless chicken skinless thigh","dry white wine","chicken stock","heavy cream","grated lemon zest","pappardelle", "salt", "pasta", "flour", 
+    // "eggs", "black pepper", "ground black pepper", "yeast", "sugar", "water", "beef"], []);
 });
