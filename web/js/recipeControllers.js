@@ -21,6 +21,7 @@ recipeControllers.controller('RecipeTileCtrl', ['$scope', '$routeParams', '$http
 recipeControllers.controller('AllRecipesCtrl', ['$scope', '$http', 'shared',
   function($scope, $http, shared) {
   	$scope.submittedIngredients = shared.getAdded().concat(shared.getEssential());
+  	$scope.orderProp = "recipeName";
 	var allResults = [];
   	var allFilteredResults = [];
 	function getRecipes (ingredientList, essentialList) {
