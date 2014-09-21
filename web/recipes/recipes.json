@@ -13,8 +13,8 @@
             "healthy" : false,
             "totalTimeInSeconds" : 50,
             "timeInMinutes" : 50,
-            "smallImageUrls" : ["img/recipes/recipe1.png"],
-            "thumbnail" : "img/recipes/recipe1.png"
+            "smallImageUrls" : ["img/recipes/cupcake.jpg"],
+            "thumbnail" : "img/recipes/cupcake.jpg"
         }, 
         {
             "recipeName" : "Grilled Chicken",
@@ -28,8 +28,8 @@
             "healthy" : false,
             "totalTimeInSeconds" : 40,
             "timeInMinutes" : 40,
-            "smallImageUrls" : ["img/recipes/recipe1.png"],
-            "thumbnail" : "img/recipes/recipe1.png"
+            "smallImageUrls" : ["img/recipes/grilledchicken.jpg"],
+            "thumbnail" : "img/recipes/grilledchicken.jpg"
         }, 
         {
             "recipeName" : "Lamb Chops",
@@ -43,8 +43,8 @@
             "healthy" : true,
             "totalTimeInSeconds" : 120,
             "timeInMinutes" : 120,
-            "smallImageUrls" : ["img/recipes/recipe1.png"],
-            "thumbnail" : "img/recipes/recipe1.png"
+            "smallImageUrls" : ["img/recipes/lamb-chop.jpeg"],
+            "thumbnail" : "img/recipes/lamb-chop.jpeg"
         }, 
         {
             "recipeName" : "Shrimp Linguini",
@@ -58,8 +58,8 @@
             "healthy" : false,
             "totalTimeInSeconds" : 30,
             "timeInMinutes" : 30,
-            "smallImageUrls" : ["img/recipes/recipe1.png"],
-            "thumbnail" : "img/recipes/recipe1.png"
+            "smallImageUrls" : ["img/recipes/shrimp-linguini.jpeg"],
+            "thumbnail" : "img/recipes/shrimp-linguini.jpeg"
         }, 
         {
             "recipeName" : "Ramen",
@@ -88,8 +88,8 @@
             "healthy" : false,
             "totalTimeInSeconds" : 25,
             "timeInMinutes" : 25,
-            "smallImageUrls" : ["img/recipes/recipe1.png"],
-            "thumbnail" : "img/recipes/recipe1.png"
+            "smallImageUrls" : ["img/recipes/poutine.jpeg"],
+            "thumbnail" : "img/recipes/poutine.jpeg"
         }
         
     ]
