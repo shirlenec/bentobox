@@ -2,11 +2,17 @@
 
 /* Services */
 
-var recipeServices = angular.module('recipeServices', ['ngResource']);
 
-recipeServices.factory('Recipe', ['$resource',
-  function($resource){
-    return $resource('recipes/:titleSlug.json', {}, {
-      query: {method:'GET', params:{titleSlug:'recipes'}, isArray:true}
-    });
-  }]);
+var sharedProperties = angular.module('sharedProperties', []);
+
+sharedProperties.service('shared', function() {
+	var ingredients = [];
+	return {
+        getIngredients: function() {
+            return ingredients;
+        },
+        setIngredients: function(value) {
+            ingredients = value;
+        }
+    }
+})

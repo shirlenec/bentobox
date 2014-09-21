@@ -1,6 +1,11 @@
 <div class="container-fluid allRecipes">
-  <div class="ingredient-list">
-  	Ingredient List:
+  <div class="ingredient-list-container">
+  	<div id="ingredient-list-text">Ingredient List:</div>
+  	<ul class="ingredient-list">
+  		<li class="ingredient" ng-repeat="ingredient in ingredients">
+  			<label>{{ingredient}}</label>
+  		</li>
+  	</ul>
   </div>
   <div class="recipe-container">
 	  <div class="recipes-text">Recipes</div>

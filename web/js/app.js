@@ -5,10 +5,9 @@
 var bentoBoxApp = angular.module('bentoBoxApp', [
   'ngRoute',
   'phonecatAnimations',
-
+  'sharedProperties',
   'ingredientListControllers',
   'phonecatFilters',
-  'recipeServices',
   'recipeControllers'
 ]);
 
