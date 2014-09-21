@@ -1,0 +1,25 @@
+<div class="detailsPage">	
+	<div class="basicInfo">
+		<div class="artwork">
+			<div class="healthyFlag" ng-show="recipe.healthy"></div>
+		</div>
+		<div id="titleInfo">
+			<div id="recipeTitle">{{recipe.title}}</div>
+			<div id="recipeRating">{{recipe.rating}} stars</div>
+			<div id="cookTime">{{recipe.cookTime}} min</div>
+		</div>
+	</div>
+	<div id="ingredients-sidebar" class="col-md-3">Ingredients:
+		<ul class="ingredient-list">
+			<li id="ingredient" ng-repeat="ingredient in recipe.ingredients">
+				<label>{{ingredient.amount}} {{ingredient.unit}} {{ingredient.name}}</label>
+		</ul>
+	</div>
+	<div id="instructions" class="col-md-8">Instructions:
+		<ol class="instruction-list">
+			<li id="instruction" ng-repeat="instruction in recipe.instructions">
+				<label>{{instruction}}</label>
+			</li>
+		</ol>
+	</div>
+</div>

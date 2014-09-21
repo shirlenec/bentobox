@@ -1,0 +1,39 @@
+{
+    "recipes":
+    [
+        {
+            "title" : "Cupcakes",
+            "titleSlug":"cupcakes",
+            "id":4,
+            "rating" : 1,
+            "healthy" : false,
+            "cookTime" : 50
+        }, 
+        {
+            "title" : "Grilled Chicken",
+            "titleSlug":"grilled-chicken",
+            "id":2,
+            "rating" : 4.5,
+            "healthy" : false,
+            "cookTime" : 40
+        }, 
+        {
+            "title" : "Lamb Chops",
+            "titleSlug":"lamb-chops",
+            "id":1,
+            "rating" : 3,
+            "healthy" : true,
+            "cookTime" : 120
+        }, 
+        {
+            "title" : "Shrimp Linguini",
+            "titleSlug":"shrimp-linguini",
+            "id" : 3,
+            "rating" : 5,
+            "healthy" : true,
+            "cookTime" : 19
+        } 
+        
+    ]
+
+}

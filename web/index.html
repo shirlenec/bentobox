@@ -1,11 +1,19 @@
 <!doctype html>
+<html lang="en" ng-app="bentoBoxApp">
+<head>
+  <meta charset="utf-8">
+  <title>BentoBox</title>
 <html lang="en" ng-app="recipeFinder" >
 <head>
   <meta charset="utf-8">
   <title>Recipes :)</title>
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
-  <link rel="stylesheet" href="css/app.css">
   <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/recipeTile.css">
+  <link rel="styleshee" href="css/ingredient-list.css">
+  <link rel="stylesheet" href="css/recipeDetail.css">
+  <link href='http://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
 
   <script src="bower_components/jquery/jquery.js"></script>
   <script src="bower_components/angular/angular.js"></script>
@@ -15,22 +23,27 @@
   <script src="js/app.js"></script>
   <script src="js/animations.js"></script>
   <script src="js/controllers.js"></script>
+  <script src="js/recipeControllers.js"></script>
   <script src="js/filters.js"></script>
+  <script src="js/services.js"></script>
+  <script src="js/directives.js"></script>
   <script src="js/q.js"></script>
-  
 </head>
 <body >
+  <div id="home-page">
+    <div id="header">
+      <div id="logo">BentoBox</div>
+    </div>
 
-  <div class="view-container">
-    <div ng-view class="view-frame"></div>
+    <div class="view-container">
+      <div ng-view class="view-frame"></div>
+    </div>
+
+    <div id="footer">
+      <div>2014 Hack the North</div>
+      <div>Brought to you by Grace, Joelle, Michelle, and Shirlene</div>
+    </div>
   </div>
-  <table ng-controller="getController">
-    <tr ng-repeat="recipe in recipes">
-      <td>
-        {{recipe.id}}
-      </td>
-    </tr>
-  </table>
 </body>
 
 </html>
