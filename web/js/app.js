@@ -20,8 +20,8 @@ bentoBoxApp.config(['$routeProvider',
         controller: 'ingredientListCtrl'
       }).
       when('/recipes/:recipeId', {
-        templateUrl: 'partials/recipeTile.html',
-        controller: 'RecipeTileCtrl'
+        templateUrl: 'partials/recipeDetail.html',
+        controller: 'RecipeDetailsCtrl'
       }).
       when('/recipes/', {
         templateUrl: 'partials/allRecipes.html',

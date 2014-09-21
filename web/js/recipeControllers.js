@@ -25,3 +25,12 @@ recipeControllers.controller('AllRecipesCtrl', ['$scope', '$http',
         console.log($scope.recipes);
       });
   }]);
+
+recipeControllers.controller('RecipeDetailsCtrl', ['$scope', '$routeParams', '$http', 
+	function($scope, $routeParams, $http) {
+		$http.get('recipes/' + $routeParams.recipeId + '.json').success(function(data){
+			$scope.recipe = data;
+			console.log(data);
+			console.log("HIII");
+		});
+	}])
