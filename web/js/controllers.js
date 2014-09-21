@@ -9,7 +9,7 @@ ingredientListControllers.controller('ingredientListCtrl', ['$scope',
     $scope.ingredientToAdd = "";
     $scope.newIngredients = [];
     $scope.addIngredient = function () {
-      angular.element("#ingredient-list")[0].innerHTML += "<br>" + $scope.ingredientToAdd;
+      angular.element("#ingredient-list")[0].innerHTML += "<li>" + $scope.ingredientToAdd + "</li>";
       $scope.newIngredients.push($scope.ingredientToAdd);
       $scope.ingredientToAdd = "";
     }
