@@ -16,9 +16,11 @@
 }
 
 #recipe-button-container {
-	background: #f63423;
-	padding: 10px;
+	background-color: #32a1ff;
+	padding: 8px 10px;
 	border-radius: 5px;
 	cursor: pointer;
 	text-align: center;
+	font-weight: bold;
+	font-size: 20px;
 }

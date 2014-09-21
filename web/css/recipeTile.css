@@ -1,11 +1,27 @@
+.allRecipes {
+	margin-top: 10px;
+}
+
 .allRecipes .ingredient-list-container {
 	width: 20%;
 	float: left;
 }
 
 .allRecipes .recipe-container {
-	width: 80%;
+	width: 79%;
 	float: left;
+}
+
+.allRecipes .extra-space {
+	width: 1%;
+	height: 20px;
+	float: left;
+}
+
+.allRecipes .innerContainer {
+	padding: 10px;
+	background: rgba(255, 255, 255, 0.2);
+	border-radius: 5px;
 }
 
 .recipeTileLink {
