@@ -31,3 +31,5 @@ bentoBoxApp.config(['$routeProvider',
         redirectTo: '/'
       });
   }]);
+
+var app = angular.module("recipeFinder", []);
