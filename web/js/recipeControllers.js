@@ -89,7 +89,7 @@ recipeControllers.controller('AllRecipesCtrl', ['$scope', '$http', 'shared',
 	        var currentIngredients = results[i].ingredients;
 	        var inList = true;
 	          for (var k in currentIngredients){
-	            if (!jQuery.inArray(currentIngredients[k], allIngredients)) {
+	            if (jQuery.inArray(currentIngredients[k], allIngredients)<=-1) {
 	              inList = false;
 	              break;
 	            }
