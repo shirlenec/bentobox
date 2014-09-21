@@ -9,7 +9,6 @@ recipeControllers.controller('RecipeTileCtrl', ['$scope', '$routeParams', '$http
   function($scope, $routeParams, $http) {
     $http.get('recipes/recipes.json').success(function(data) {
         $scope.recipes = data.recipes;
-        console.log($scope.recipes);
       });
 
     $scope.setImage = function(imageUrl) {
@@ -26,6 +25,10 @@ recipeControllers.controller('AllRecipesCtrl', ['$scope', '$http', 'shared',
 	$scope.clickedLink = function (recipe) {
 		shared.setRecipe(recipe);
 	};
+
+	$scope.getNumber = function(num) {
+	    return new Array(num);
+	}
   	
 	var allResults = [];
   	var allFilteredResults = [];
@@ -112,11 +115,12 @@ recipeControllers.controller('AllRecipesCtrl', ['$scope', '$http', 'shared',
 	    	$scope.recipes[i].timeInMinutes = parseInt($scope.recipes[i].totalTimeInSeconds / 60);
 	    	$scope.recipes[i].thumbnail = ($scope.recipes[i].smallImageUrls && $scope.recipes[i].smallImageUrls.length) ?
 	    									$scope.recipes[i].smallImageUrls[0] : '';
+	    	$scope.recipes[i].numStars = parseInt($scope.recipes[i].rating);
 	    }
 	    $scope.$apply();
 
-	    console.log("RECIPE ARRIVES");
-	    console.log($scope.recipes);
+	    //console.log("RECIPE ARRIVES");
+	    //console.log($scope.recipes);
 	  }
 
 	  $http.get('recipes/' + 'recipes.json').success(function(data){
@@ -132,5 +136,8 @@ recipeControllers.controller('RecipeDetailsCtrl', ['$scope', '$routeParams', 'sh
 			$scope.recipe = data;
 		});*/
 		$scope.recipe = shared.getRecipe();
-		console.log($scope.recipe);
+		//console.log($scope.recipe);
+		$scope.getNumber = function(num) {
+		    return new Array(num);
+		}
 	}])

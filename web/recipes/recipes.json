@@ -6,6 +6,7 @@
             "titleSlug":"cupcakes",
             "id":4,
             "rating" : 1,
+            "numStars" : 1,
             "ingredients" : [
                 "coarse salt", "white rice"
             ],
@@ -20,6 +21,7 @@
             "titleSlug":"grilled-chicken",
             "id":2,
             "rating" : 4.5,
+            "numStars" : 5,
             "ingredients" : [
                 "coarse salt", "white rice"
             ],
@@ -34,6 +36,7 @@
             "titleSlug":"lamb-chops",
             "id":1,
             "rating" : 3,
+            "numStars" : 3,
             "ingredients" : [
                 "coarse salt", "white rice"
             ],
@@ -48,6 +51,7 @@
             "titleSlug":"shrimp-linguini",
             "id" : 3,
             "rating" : 5,
+            "numStars" : 5,
             "ingredients" : [
                 "coarse salt", "white rice"
             ],

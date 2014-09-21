@@ -20,7 +20,8 @@
 					<div class="healthyFlag"></div>
 				</div>
 				<div class="infoPane">
-					<div class="ratings">{{recipe.rating}} stars</div>
+					<span class="blueStar ratings" ng-repeat="i in getNumber(recipe.numStars) track by $index"></span>
+					<span class="greyStar ratings" ng-repeat="j in getNumber(5 - recipe.numStars) track by $index"></span>
 					<div class="timeToMake">{{recipe.timeInMinutes}} min</div>
 					<div class="recipeName">{{recipe.recipeName}}</div>
 				</div>

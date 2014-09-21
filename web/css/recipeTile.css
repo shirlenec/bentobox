@@ -66,6 +66,20 @@
 	float: left;
 }
 
+.blueStar {
+	background: url('../img/icons/bluestar.png') no-repeat;
+	width: 17px;
+	height: 17px;
+	float: left;
+}
+
+.greyStar {
+	background: url('../img/icons/greystar.png') no-repeat;
+	width: 17px;
+	height: 17px;
+	float: left;
+}
+
 .recipeTile .infoPane .timeToMake {
 	float: right;
 }
