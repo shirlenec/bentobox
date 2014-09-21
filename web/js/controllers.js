@@ -1,28 +1,8 @@
 var app = angular.module('recipeFinder', []);
 
 app.controller('getController', function($scope){
-  // function init() {
-  //  // var data = recipeService.getRecipes(callback(data));  
-  //  $.ajax({
-  //     method:'GET',
-  //     url:'https://api.yummly.com/v1/api/recipes?_app_id=0375a96b&_app_key=ad073d0bd45d862d60e9f41b30ad316a&q=chicken+wine',
-  //     dataType: 'jsonp',
-  //     headers:{
-  //               'Access-Control-Allow-Origin': '*',
-  //               'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-  //               'Access-Control-Allow-Headers': 'Content-Type, X-Requested-With'
-  //             }
-  //   }).
-  //   success (function(data, status, headers, config){
-  //     console.log ("in service");
-  //     console.log(data);
-  //     return data;
-  //   }).
-  //   error(function(data, status){
-  //     alert ('not working');
-  //   });
-    
-  // }
+  var allResults = [];
+  var allFilteredResults = [];
 
   function getRecipes (ingredientList, essentialList) {
     var ingredient;
@@ -31,12 +11,9 @@ app.controller('getController', function($scope){
     var promise;
 
     for (i in ingredientList){
-      console.log(i);
       promise = apiCall(ingredientList[i], results);
       promise.then(function(values){
-        results = results.push(values[0]);
-        console.log(values);
-        filterRecipes(ingredientList, essentialList, values);
+        filterRecipes(ingredientList, essentialList, values[0]);
       });
       
       promises.push(promise);
@@ -44,7 +21,6 @@ app.controller('getController', function($scope){
 
     // Check API for each ingredient individually. Add all to a list of all results, which may include duplicates or uncorrect items. 
     Q.all(promises).then(
-      console.log(results)
       // filterRecipes(ingredientList, essentialList, results)
       );
 }
@@ -63,9 +39,8 @@ $.ajax({
                 }
       }).
       success (function(data, status, headers, config){
-        results = results.concat(data.matches);
-        deferred.resolve([results]);
-        console.log(results.length);
+        allResults = allResults.concat(data.matches);
+        deferred.resolve([allResults]);
       }).
       error(function(data, status){
         alert ('not working');
@@ -100,8 +75,8 @@ function filterRecipes (ingredientList, essentialList, results){
           }
       }
     }
-// console.log(JSON.stringify(filteredRecipes));
-    return filteredRecipes;
+
+    $scope.recipes = filteredRecipes;
   }
 
   getRecipes(["boneless chicken skinless thigh","dry white wine","chicken stock","heavy cream","grated lemon zest","pappardelle", "salt", "pasta", "flour", 
