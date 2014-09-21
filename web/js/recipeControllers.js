@@ -40,17 +40,21 @@ recipeControllers.controller('AllRecipesCtrl', ['$scope', '$http', 'shared',
 
 	    for (var i in ingredientList){
 	      promise = apiCall(ingredientList[i], results);
-	      promise.then(function(values){
-	        filterRecipes(ingredientList, essentialList, values[0]);
-	      });
+	      /*promise.then(function(values){
+	      	if (values) {
+		      	for (var i = 0 ; i < values.length ; i++) {
+		        	filterRecipes(ingredientList, essentialList, values[i]);
+		      	}
+		    }
+	      });*/
 	      
 	      promises.push(promise);
 	    }
 
 	    // Check API for each ingredient individually. Add all to a list of all results, which may include duplicates or uncorrect items. 
-	    Q.all(promises).then(
-	      // filterRecipes(ingredientList, essentialList, results)
-	      );
+	    Q.all(promises).then(function(values) {
+	    	filterRecipes(ingredientList, essentialList, values)
+	    });
 	  }
 
 	function apiCall(ingredient, results) {
@@ -84,18 +88,27 @@ recipeControllers.controller('AllRecipesCtrl', ['$scope', '$http', 'shared',
 	}
 
 	function filterRecipes (ingredientList, essentialList, results){
+		var temp1 = [];
+		for (var a = 0 ; a < results.length ; a++) {
+			temp1 = temp1.concat(results[a]);
+		}    
+		var results2 = [];
+		for (var b = 0 ; b < temp1.length ; b++) {
+			results2 = results2.concat(temp1[b]);
+		}
+
 	    // Sort results
-	    results.sort(function(a, b) {
+	    results2.sort(function(a, b) {
 	      return a.id < b.id;
 	    });
 
 	    // Iterate through list, remove duplicates and recipes with ingredients that are provided. 
 	    var filteredRecipes = [];
 	    var allIngredients = ingredientList.concat(essentialList);
-	    for (var i in results){
-	      if (i != 0 && results[i] != results[i-1]) {
+	    for (var i in results2){
+	      if (i != 0 && results2[i] != results2[i-1]) {
 	        // Check if recipe contains ingredients we don't have. 
-	        var currentIngredients = results[i].ingredients;
+	        var currentIngredients = results2[i].ingredients;
 	        var inList = true;
 	          for (var k in currentIngredients){
 	            if (jQuery.inArray(currentIngredients[k], allIngredients)<=-1) {
@@ -105,7 +118,7 @@ recipeControllers.controller('AllRecipesCtrl', ['$scope', '$http', 'shared',
 	          }
 
 	          if (inList){
-	            filteredRecipes.push(results[i]);
+	            filteredRecipes.push(results2[i]);
 	          }
 	      }
 	    }
@@ -119,14 +132,14 @@ recipeControllers.controller('AllRecipesCtrl', ['$scope', '$http', 'shared',
 	    }
 	    $scope.$apply();
 
-	    //console.log("RECIPE ARRIVES");
-	    //console.log($scope.recipes);
+	    console.log("RECIPE ARRIVES");
+	    console.log($scope.recipes);
 	  }
 
-	  $http.get('recipes/' + 'recipes.json').success(function(data){
+	  /*$http.get('recipes/' + 'recipes.json').success(function(data){
 			$scope.recipes = data.recipes;
-		});
-	  //getRecipes(shared.getAdded(), shared.getEssential());
+		});*/
+	  getRecipes(shared.getAdded(), shared.getEssential());
   }
 ]);
 
