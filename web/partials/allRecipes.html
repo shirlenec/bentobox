@@ -13,6 +13,15 @@
   <div class="recipe-container">
   	<div class="innerContainer">
 	  <div class="recipes-text titleBox">Recipes:</div>
+		<div id="sort-container">
+			Sort by:
+	      <select ng-model="orderProp">
+	        <option value="totalTimeInSeconds">Prep Time</option>
+	        <option value="-rating">Rating</option>
+	        <option value="recipeName">Alphabetical</option>
+	      </select>
+	  	</div>
+	  	<div class="clearall"></div>
 	  	<div class="tile-container">
 		  	<a class="recipeTileLink" ng-repeat="recipe in recipes | orderBy: orderProp" ng-href="#/recipes/{{recipe.id}}" ng-click="clickedLink(recipe)">
 		      <div class="recipeTile">
@@ -30,14 +39,6 @@
 	    </div>
 	  </div>
 	</div>
-	<div id="sort-container">
-		Sort by:
-      <select ng-model="orderProp">
-        <option value="totalTimeInSeconds">Prep Time</option>
-        <option value="-rating">Rating</option>
-        <option value="recipeName">Alphabetical</option>
-      </select>
-  	</div>
   </div>
   <div class="clearall"></div>
 </div>
