@@ -1,38 +1,58 @@
 var app = angular.module('recipeFinder', []);
 
 app.controller('getController', function($scope){
-  function init() {
-   // var data = recipeService.getRecipes(callback(data));  
-   $.ajax({
-      method:'GET',
-      url:'https://api.yummly.com/v1/api/recipes?_app_id=0375a96b&_app_key=ad073d0bd45d862d60e9f41b30ad316a&q=chicken+wine',
-      dataType: 'jsonp',
-      headers:{
-                'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-                'Access-Control-Allow-Headers': 'Content-Type, X-Requested-With'
-              }
-    }).
-    success (function(data, status, headers, config){
-      console.log ("in service");
-      console.log(data);
-      return data;
-    }).
-    error(function(data, status){
-      alert ('not working');
-    });
+  // function init() {
+  //  // var data = recipeService.getRecipes(callback(data));  
+  //  $.ajax({
+  //     method:'GET',
+  //     url:'https://api.yummly.com/v1/api/recipes?_app_id=0375a96b&_app_key=ad073d0bd45d862d60e9f41b30ad316a&q=chicken+wine',
+  //     dataType: 'jsonp',
+  //     headers:{
+  //               'Access-Control-Allow-Origin': '*',
+  //               'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+  //               'Access-Control-Allow-Headers': 'Content-Type, X-Requested-With'
+  //             }
+  //   }).
+  //   success (function(data, status, headers, config){
+  //     console.log ("in service");
+  //     console.log(data);
+  //     return data;
+  //   }).
+  //   error(function(data, status){
+  //     alert ('not working');
+  //   });
     
-  }
+  // }
 
   function getRecipes (ingredientList, essentialList) {
     var ingredient;
     var results = [];
-    // Check API for each ingredient individually. Add all to a list of all results, which may include duplicates or uncorrect items. 
-    $.when(
-    for (i in ingredientList){
-      var queryString = "https://api.yummly.com/v1/api/recipes?_app_id=0375a96b&_app_key=ad073d0bd45d862d60e9f41b30ad316a&q=" + ingredientList[i];
+    var promises = [];
+    var promise;
 
-      $.ajax({
+    for (i in ingredientList){
+      console.log(i);
+      promise = apiCall(ingredientList[i], results);
+      promise.then(function(values){
+        results = results.push(values[0]);
+        console.log(values);
+        filterRecipes(ingredientList, essentialList, values);
+      });
+      
+      promises.push(promise);
+  }
+
+    // Check API for each ingredient individually. Add all to a list of all results, which may include duplicates or uncorrect items. 
+    Q.all(promises).then(
+      console.log(results)
+      // filterRecipes(ingredientList, essentialList, results)
+      );
+}
+
+function apiCall(ingredient, results) {
+  var deferred = Q.defer();
+  var queryString = "https://api.yummly.com/v1/api/recipes?_app_id=0375a96b&_app_key=ad073d0bd45d862d60e9f41b30ad316a&q=" + ingredient;
+$.ajax({
         method:'GET',
         url:queryString,
         dataType: 'jsonp',
@@ -44,24 +64,22 @@ app.controller('getController', function($scope){
       }).
       success (function(data, status, headers, config){
         results = results.concat(data.matches);
-        console.log("results "  + results);
+        deferred.resolve([results]);
+        console.log(results.length);
       }).
       error(function(data, status){
         alert ('not working');
-      })
-    })
-    .done(filterRecipes(ingredientList, essentialList, results));
+      });
+    
+    return deferred.promise;
 }
 
 function filterRecipes (ingredientList, essentialList, results){
     // Sort results
-    console.log(ingredientList);
-    console.log("essentialList" + essentialList);
-    console.log("results" + results);
     results.sort(function(a, b) {
       return a.id < b.id;
     });
- console.log("sorted results "  + results);
+
     // Iterate through list, remove duplicates and recipes with ingredients that are provided. 
     var filteredRecipes = [];
     var allIngredients = ingredientList.concat(essentialList);
@@ -71,21 +89,18 @@ function filterRecipes (ingredientList, essentialList, results){
         var currentIngredients = results[i].ingredients;
         var inList = true;
           for (k in currentIngredients){
-            console.log("an ingredient: " + currentIngredients[k])
             if (!jQuery.inArray(currentIngredients[k], allIngredients)) {
-              console.log("not in array: "+ currentIngredients[k]);
               inList = false;
               break;
             }
           }
 
           if (inList){
-            console.log("added");
             filteredRecipes.push(results[i]);
           }
       }
     }
-console.log(filteredRecipes);
+// console.log(JSON.stringify(filteredRecipes));
     return filteredRecipes;
   }
 
