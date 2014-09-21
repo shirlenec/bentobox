@@ -107,7 +107,10 @@ recipeControllers.controller('AllRecipesCtrl', ['$scope', '$http', 'shared',
 	    console.log($scope.recipes);
 	  }
 
-	  getRecipes(shared.getAdded(), shared.getEssential());
+	  $http.get('recipes/' + 'recipes.json').success(function(data){
+			$scope.recipes = data.recipes;
+		});
+	  //getRecipes(shared.getAdded(), shared.getEssential());
   }
 ]);
 
