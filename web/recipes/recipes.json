@@ -6,32 +6,56 @@
             "titleSlug":"cupcakes",
             "id":4,
             "rating" : 1,
+            "ingredients" : [
+                "coarse salt", "white rice"
+            ],
             "healthy" : false,
-            "totalTimeInSeconds" : 50
+            "totalTimeInSeconds" : 50,
+            "timeInMinutes" : 90,
+            "smallImageUrls" : ["img/recipes/recipe1.png"],
+            "thumbnail" : "img/recipes/recipe1.png"
         }, 
         {
             "recipeName" : "Grilled Chicken",
             "titleSlug":"grilled-chicken",
             "id":2,
             "rating" : 4.5,
+            "ingredients" : [
+                "coarse salt", "white rice"
+            ],
             "healthy" : false,
-            "totalTimeInSeconds" : 40
+            "totalTimeInSeconds" : 40,
+            "timeInMinutes" : 90,
+            "smallImageUrls" : ["img/recipes/recipe1.png"],
+            "thumbnail" : "img/recipes/recipe1.png"
         }, 
         {
             "recipeName" : "Lamb Chops",
             "titleSlug":"lamb-chops",
             "id":1,
             "rating" : 3,
+            "ingredients" : [
+                "coarse salt", "white rice"
+            ],
             "healthy" : true,
-            "totalTimeInSeconds" : 120
+            "totalTimeInSeconds" : 120,
+            "timeInMinutes" : 90,
+            "smallImageUrls" : ["img/recipes/recipe1.png"],
+            "thumbnail" : "img/recipes/recipe1.png"
         }, 
         {
             "recipeName" : "Shrimp Linguini",
             "titleSlug":"shrimp-linguini",
             "id" : 3,
             "rating" : 5,
+            "ingredients" : [
+                "coarse salt", "white rice"
+            ],
             "healthy" : true,
-            "totalTimeInSeconds" : 19
+            "totalTimeInSeconds" : 19,
+            "timeInMinutes" : 90,
+            "smallImageUrls" : ["img/recipes/recipe1.png"],
+            "thumbnail" : "img/recipes/recipe1.png"
         } 
         
     ]

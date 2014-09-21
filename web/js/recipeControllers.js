@@ -118,10 +118,10 @@ recipeControllers.controller('AllRecipesCtrl', ['$scope', '$http', 'shared',
 	    console.log($scope.recipes);
 	  }
 
-	  /*$http.get('recipes/' + 'recipes.json').success(function(data){
+	  $http.get('recipes/' + 'recipes.json').success(function(data){
 			$scope.recipes = data.recipes;
-		});*/
-	  getRecipes(shared.getAdded(), shared.getEssential());
+		});
+	  //getRecipes(shared.getAdded(), shared.getEssential());
   }
 ]);
 
