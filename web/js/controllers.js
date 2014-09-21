@@ -6,18 +6,20 @@ ingredientListControllers.controller('ingredientListCtrl', ['$scope', 'shared',
   function($scope, shared) {
     $scope.ingredientToAdd = "";
     $scope.newIngredients = [];
+
+    $scope.essentials = [ 'eggs', 'flour', 'sugar', 'butter', 'oil', 'water', 'milk' ];
+
+    $scope.selection = $scope.essentials.slice(0);
     $scope.addIngredient = function () {
       var contains = false;
 
       for( var ingredient in $scope.selection ) {
-        console.log(ingredient);
         if( $scope.selection[ingredient] == $scope.ingredientToAdd ){
           contains = true;
         }
       }
 
       for( var ingredient in $scope.newIngredients ) {
-        console.log(ingredient);
         if( $scope.newIngredients[ingredient] == $scope.ingredientToAdd ){
           contains = true;
         }
@@ -30,10 +32,6 @@ ingredientListControllers.controller('ingredientListCtrl', ['$scope', 'shared',
       
       $scope.ingredientToAdd = "";
     }
-
-    $scope.essentials = [ 'eggs', 'flour', 'sugar', 'butter', 'oil', 'water', 'milk' ];
-
-    $scope.selection = $scope.essentials.slice(0);
 
     $scope.toggleSelection = function(essential) {
       var idx = $scope.selection.indexOf(essential);
