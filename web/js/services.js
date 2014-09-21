@@ -6,13 +6,20 @@
 var sharedProperties = angular.module('sharedProperties', []);
 
 sharedProperties.service('shared', function() {
-	var ingredients = [];
+	var essential = [];
+	var added = [];
 	return {
-        getIngredients: function() {
-            return ingredients;
+        getAdded: function() {
+            return added;
         },
-        setIngredients: function(value) {
-            ingredients = value;
+        setAdded: function(value) {
+            added = value;
+        },
+        getEssential: function() {
+        	return essential;
+        },
+        setEssential: function(value) {
+        	essential = value
         }
     }
 })
