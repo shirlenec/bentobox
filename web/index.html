@@ -16,14 +16,15 @@
   <script src="js/animations.js"></script>
   <script src="js/controllers.js"></script>
   <script src="js/filters.js"></script>
-
+  <script src="js/q.js"></script>
+  
 </head>
-<body ng-controller="getController">
+<body >
 
   <div class="view-container">
     <div ng-view class="view-frame"></div>
   </div>
-  <table>
+  <table ng-controller="getController">
     <tr ng-repeat="recipe in recipes">
       <td>
         {{recipe.id}}

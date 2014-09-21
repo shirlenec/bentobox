@@ -1,38 +1,40 @@
 var app = angular.module('recipeFinder', []);
 
 app.controller('getController', function($scope){
-  function init() {
-   // var data = recipeService.getRecipes(callback(data));  
-   $.ajax({
-      method:'GET',
-      url:'https://api.yummly.com/v1/api/recipes?_app_id=0375a96b&_app_key=ad073d0bd45d862d60e9f41b30ad316a&q=chicken+wine',
-      dataType: 'jsonp',
-      headers:{
-                'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-                'Access-Control-Allow-Headers': 'Content-Type, X-Requested-With'
-              }
-    }).
-    success (function(data, status, headers, config){
-      console.log ("in service");
-      console.log(data);
-      return data;
-    }).
-    error(function(data, status){
-      alert ('not working');
-    });
-    
-  }
+  var allResults = [];
+  var allFilteredResults = [];
 
   function getRecipes (ingredientList, essentialList) {
     var ingredient;
     var results = [];
-    // Check API for each ingredient individually. Add all to a list of all results, which may include duplicates or uncorrect items. 
-    $.when(
-    for (i in ingredientList){
-      var queryString = "https://api.yummly.com/v1/api/recipes?_app_id=0375a96b&_app_key=ad073d0bd45d862d60e9f41b30ad316a&q=" + ingredientList[i];
+    var promises = [];
+    var promise;
 
-      $.ajax({
+    for (i in ingredientList){
+      promise = apiCall(ingredientList[i], results);
+      promise.then(function(values){
+        filterRecipes(ingredientList, essentialList, values[0]);
+      });
+      
+      promises.push(promise);
+  }
+
+    // Check API for each ingredient individually. Add all to a list of all results, which may include duplicates or uncorrect items. 
+    Q.all(promises).then(
+      // filterRecipes(ingredientList, essentialList, results)
+      );
+}
+
+function apiCall(ingredient, results) {
+  var deferred = Q.defer();
+  //Michelle
+  // var app_id = "0375a96b";
+  // var app_key = "ad073d0bd45d862d60e9f41b30ad316a";
+
+  var app_id = "f796d382";
+  var app_key = "781bfd632b62f4b2b3d86dd8b6714f01";
+  var queryString = "https://api.yummly.com/v1/api/recipes?_app_id=" +app_id+ "&_app_key="+app_key+"&q=" + ingredient;
+$.ajax({
         method:'GET',
         url:queryString,
         dataType: 'jsonp',
@@ -43,25 +45,22 @@ app.controller('getController', function($scope){
                 }
       }).
       success (function(data, status, headers, config){
-        results = results.concat(data.matches);
-        console.log("results "  + results);
+        allResults = allResults.concat(data.matches);
+        deferred.resolve([allResults]);
       }).
       error(function(data, status){
         alert ('not working');
-      })
-    })
-    .done(filterRecipes(ingredientList, essentialList, results));
+      });
+    
+    return deferred.promise;
 }
 
 function filterRecipes (ingredientList, essentialList, results){
     // Sort results
-    console.log(ingredientList);
-    console.log("essentialList" + essentialList);
-    console.log("results" + results);
     results.sort(function(a, b) {
       return a.id < b.id;
     });
- console.log("sorted results "  + results);
+
     // Iterate through list, remove duplicates and recipes with ingredients that are provided. 
     var filteredRecipes = [];
     var allIngredients = ingredientList.concat(essentialList);
@@ -71,24 +70,21 @@ function filterRecipes (ingredientList, essentialList, results){
         var currentIngredients = results[i].ingredients;
         var inList = true;
           for (k in currentIngredients){
-            console.log("an ingredient: " + currentIngredients[k])
             if (!jQuery.inArray(currentIngredients[k], allIngredients)) {
-              console.log("not in array: "+ currentIngredients[k]);
               inList = false;
               break;
             }
           }
 
           if (inList){
-            console.log("added");
             filteredRecipes.push(results[i]);
           }
       }
     }
-console.log(filteredRecipes);
-    return filteredRecipes;
+    
+    $scope.recipes = filteredRecipes;
   }
 
-  getRecipes(["boneless chicken skinless thigh","dry white wine","chicken stock","heavy cream","grated lemon zest","pappardelle", "salt", "pasta", "flour", 
-    "eggs", "black pepper", "ground black pepper", "yeast", "sugar", "water", "beef"], []);
+  // getRecipes(["boneless chicken skinless thigh","dry white wine","chicken stock","heavy cream","grated lemon zest","pappardelle", "salt", "pasta", "flour", 
+    // "eggs", "black pepper", "ground black pepper", "yeast", "sugar", "water", "beef"], []);
 });
