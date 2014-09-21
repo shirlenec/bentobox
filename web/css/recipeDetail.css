@@ -1,8 +1,10 @@
 .basicInfo .artwork {
 	width: 200px;
 	height: 200px;
-	background: url('../img/recipes/recipe1.png');
-	float:left;
+	float: left;
+	background-color: #000000;
+	background-repeat: no-repeat;
+	background-size: 200px 200px;
 }
 
 .basicInfo .artwork .healthyFlag {

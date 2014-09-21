@@ -21,6 +21,11 @@ recipeControllers.controller('RecipeTileCtrl', ['$scope', '$routeParams', '$http
 recipeControllers.controller('AllRecipesCtrl', ['$scope', '$http', 'shared',
   function($scope, $http, shared) {
   	$scope.submittedIngredients = shared.getAdded().concat(shared.getEssential());
+
+	$scope.clickedLink = function (recipe) {
+		shared.setRecipe(recipe);
+	};
+
 	var allResults = [];
   	var allFilteredResults = [];
 	function getRecipes (ingredientList, essentialList) {
@@ -100,23 +105,31 @@ recipeControllers.controller('AllRecipesCtrl', ['$scope', '$http', 'shared',
 	          }
 	      }
 	    }
-	    console.log(filteredRecipes);
 	    $scope.recipes = filteredRecipes;
+
+	    for (var i = 0 ; i < $scope.recipes.length ; i++) {
+	    	$scope.recipes[i].timeInMinutes = parseInt($scope.recipes[i].totalTimeInSeconds / 60);
+	    	$scope.recipes[i].thumbnail = ($scope.recipes[i].smallImageUrls && $scope.recipes[i].smallImageUrls.length) ?
+	    									$scope.recipes[i].smallImageUrls[0] : '';
+	    }
 	    $scope.$apply();
+
 	    console.log("RECIPE ARRIVES");
 	    console.log($scope.recipes);
 	  }
 
-	  $http.get('recipes/' + 'recipes.json').success(function(data){
+	  /*$http.get('recipes/' + 'recipes.json').success(function(data){
 			$scope.recipes = data.recipes;
-		});
-	  //getRecipes(shared.getAdded(), shared.getEssential());
+		});*/
+	  getRecipes(shared.getAdded(), shared.getEssential());
   }
 ]);
 
-recipeControllers.controller('RecipeDetailsCtrl', ['$scope', '$routeParams', '$http', 
-	function($scope, $routeParams, $http) {
-		$http.get('recipes/' + $routeParams.recipeId + '.json').success(function(data){
+recipeControllers.controller('RecipeDetailsCtrl', ['$scope', '$routeParams', 'shared',
+	function($scope, $routeParams, shared) {
+		/*$http.get('recipes/' + $routeParams.recipeId + '.json').success(function(data){
 			$scope.recipe = data;
-		});
+		});*/
+		$scope.recipe = shared.getRecipe();
+		console.log($scope.recipe);
 	}])

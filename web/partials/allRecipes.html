@@ -14,14 +14,14 @@
   	<div class="innerContainer">
 	  <div class="recipes-text titleBox">Recipes:</div>
 	  	<div class="tile-container">
-		  	<a class="recipeTileLink" ng-repeat="recipe in recipes" href="#/recipes/{{recipe.titleSlug}}">
+		  	<a class="recipeTileLink" ng-repeat="recipe in recipes" ng-href="#/recipes/{{recipe.id}}" ng-click="clickedLink(recipe)">
 		      <div class="recipeTile">
-				<div class="artwork">
+				<div class="artwork" style="background-image: url('{{recipe.thumbnail}}')">
 					<div class="healthyFlag"></div>
 				</div>
 				<div class="infoPane">
 					<div class="ratings">{{recipe.rating}} stars</div>
-					<div class="timeToMake">{{recipe.totalTimeInSeconds}} min</div>
+					<div class="timeToMake">{{recipe.timeInMinutes}} min</div>
 					<div class="recipeName">{{recipe.recipeName}}</div>
 				</div>
 		      </div>

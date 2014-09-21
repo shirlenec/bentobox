@@ -1,18 +1,20 @@
 <div class="detailsPage">	
 	<div class="basicInfo">
-		<div class="artwork">
+		<div class="artwork" style="background-image: url('{{recipe.thumbnail}}')">
 			<div class="healthyFlag" ng-show="recipe.healthy"></div>
 		</div>
 		<div id="titleInfo">
-			<div id="recipeTitle">{{recipe.title}}</div>
+			<div id="recipeTitle">{{recipe.recipeName}}</div>
 			<div id="recipeRating">{{recipe.rating}} stars</div>
-			<div id="cookTime">{{recipe.cookTime}} min</div>
+			<div id="cookTime">{{recipe.timeInMinutes}} min</div>
 		</div>
 	</div>
 	<div id="ingredients-sidebar" class="col-md-3">Ingredients:
 		<ul class="ingredient-list">
 			<li id="ingredient" ng-repeat="ingredient in recipe.ingredients">
-				<label>{{ingredient.amount}} {{ingredient.unit}} {{ingredient.name}}</label>
+				<!--<label>{{ingredient.amount}} {{ingredient.unit}} {{ingredient.name}}</label>-->
+				{{ingredient}}
+			</li>
 		</ul>
 	</div>
 	<div id="instructions" class="col-md-8">Instructions:
