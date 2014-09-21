@@ -1,7 +1,24 @@
 #ingredient-list {
   max-width: 350px;
+  min-height: 270px;
 }
 
 .essential-item {
-  margin-right: 15px;
+  margin-right: 5px;
+  font-weight: normal;
+  display: block;
+  float: left;
+  margin-right: 10px;
+}
+
+.inputBox {
+	width: 80%;
+}
+
+#recipe-button-container {
+	background: #f63423;
+	padding: 10px;
+	border-radius: 5px;
+	cursor: pointer;
+	text-align: center;
 }
