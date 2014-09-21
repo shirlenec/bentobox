@@ -7,8 +7,27 @@ ingredientListControllers.controller('ingredientListCtrl', ['$scope', 'shared',
     $scope.ingredientToAdd = "";
     $scope.newIngredients = [];
     $scope.addIngredient = function () {
-      angular.element("#ingredient-list")[0].innerHTML += "<li>" + $scope.ingredientToAdd + "</li>";
-      $scope.newIngredients.push($scope.ingredientToAdd);
+      var contains = false;
+
+      for( var ingredient in $scope.selection ) {
+        console.log(ingredient);
+        if( $scope.selection[ingredient] == $scope.ingredientToAdd ){
+          contains = true;
+        }
+      }
+
+      for( var ingredient in $scope.newIngredients ) {
+        console.log(ingredient);
+        if( $scope.newIngredients[ingredient] == $scope.ingredientToAdd ){
+          contains = true;
+        }
+      }
+
+      if(!contains) {
+        angular.element("#ingredient-list")[0].innerHTML += "<li>" + $scope.ingredientToAdd + "</li>";
+        $scope.newIngredients.push($scope.ingredientToAdd);
+      }
+      
       $scope.ingredientToAdd = "";
     }
 
